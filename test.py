@@ -34,4 +34,4 @@ if __name__ == "__main__":
     try:
         asyncio.run(main())
     except Exception as e:
-        bot.send_message(chat_id=CHAT_ID, text='프로그램 종료됨\n'+str(e)))
+        bot.send_message(chat_id=CHAT_ID, text='프로그램 종료됨\n'+str(e))
