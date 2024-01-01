@@ -2,7 +2,8 @@ import telegram
 import asyncio
 import os
 from dotenv import load_dotenv
-from hotdeal import get_hotdeal
+from src.hotdeal import get_hotdeal
+from src.util import send_hook
 
 load_dotenv()
 TOKEN = os.getenv("TELEGRAM_TOKEN")
@@ -24,9 +25,13 @@ async def main():
                 store = article['store']
                 link = article['link']
 
-                await bot.send_message(chat_id=CHAT_ID, text=f'[{category}] {title}\n{price}\n{store}\n{link}')
+                # await bot.send_message(chat_id=CHAT_ID, text=f'[{category}] {title}\n{price}\n{store}\n{link}')
+                await send_hook(title, link, price, category, store, "아카라이브")
         await asyncio.sleep(60)
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        asyncio.run(main())
+    except Exception as e:
+        bot.send_message(chat_id=CHAT_ID, text='프로그램 종료됨\n'+str(e))')

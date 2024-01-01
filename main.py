@@ -9,6 +9,7 @@ TOKEN = os.getenv("TELEGRAM_TOKEN")
 async def unset(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chat_id = update.message.chat_id
     await update.message.reply_text("It is just a test")
+    await context.bot.send
 
 
 def main() -> None:
@@ -18,7 +19,7 @@ def main() -> None:
 
     # on different commands - answer in Telegram
     application.add_handler(CommandHandler("unset", unset))
-
+    
     # Run the bot until the user presses Ctrl-C
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 

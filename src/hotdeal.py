@@ -3,7 +3,17 @@ from dotenv import load_dotenv
 import requests
 
 
-def get_hotdeal():
+def get_hotdeal() -> list:
+    """## 아카라이브의 핫딜 정보를 리스트로 반환
+    Returns:
+        * result -> list
+        * article_id -> int
+        * title -> str
+        * price -> str
+        * category -> str
+        * store -> str
+        * link -> str
+    """
     url = 'https://arca.live/b/hotdeal'
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
