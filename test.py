@@ -27,7 +27,7 @@ async def main():
                     link = article['link']
 
                     # await bot.send_message(chat_id=CHAT_ID, text=f'[{category}] {title}\n{price}\n{store}\n{link}')
-                    await send_hook(title, link, price, category, store, "아카라이브")
+                    send_hook(title, link, price, category, store, "아카라이브")
             await asyncio.sleep(60)
     except Exception as e:
         await bot.send_message(chat_id=CHAT_ID, text=f'에러 발생\n{e}')

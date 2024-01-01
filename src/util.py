@@ -48,6 +48,6 @@ def send_hook(title:str, url:str, price:str, category:str, store:str, sitename:s
     
     url = DISCORD_WEBHOOK
     requests.post(url, json=json, headers={'Content-Type': 'application/json'})
-\
+
 if __name__ == "__main__":
     send_hook("테스트", "https://arca.live/b/hotdeal/123456", "1000원", "의류", "테스트", "홀리쉿")
