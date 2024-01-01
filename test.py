@@ -30,7 +30,7 @@ async def main():
                     await send_hook(title, link, price, category, store, "아카라이브")
             await asyncio.sleep(60)
     except Exception as e:
-        bot.send_message(chat_id=CHAT_ID, text=f'에러 발생\n{e}')
+        await bot.send_message(chat_id=CHAT_ID, text=f'에러 발생\n{e}')
 
 
 if __name__ == "__main__":
