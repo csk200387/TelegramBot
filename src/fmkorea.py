@@ -13,11 +13,10 @@ def get_hotdeal() -> list:
         * store -> str
         * link -> str
     """
-    url = 'https://www.fmkorea.com/index.php?mid=hotdeal'
+    url = 'https://www.fmkorea.com/hotdeal'
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
     hotdeal = soup.find('div', class_='fm_best_widget _bd_pc').find('ul').find_all('li')
-    # print(hotdeal)
     result = []
 
     for i in hotdeal:
