@@ -14,7 +14,9 @@ def get_hotdeal() -> list:
         * link -> str
     """
     url = 'https://www.fmkorea.com/hotdeal'
-    response = requests.get(url)
+    response = requests.get(url, headers=
+                            {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Whale/3.24.223.18 Safari/537.36'
+                             })
     soup = BeautifulSoup(response.text, 'html.parser')
     hotdeal = soup.find('div', class_='fm_best_widget _bd_pc').find('ul').find_all('li')
     result = []
